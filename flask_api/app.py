@@ -3,8 +3,10 @@ import joblib
 import numpy as np
 import pandas as pd
 import traceback
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 model = joblib.load('sports_career_rf_model.pkl')
 
@@ -71,7 +73,8 @@ def predict():
 @app.route('/getQuestion', methods=['GET'])
 def getQuestion():
     try:
-        return jsonify({"questions": likert_cols})
+        question = {f"q{i+1}": value for i, value in enumerate(likert_cols)}
+        return jsonify({"questions": question})
      
     except Exception as e:
          traceback.print_exc()
