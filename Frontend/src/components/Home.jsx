@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from "react";
+import robot from "../assets/robo.png";
 const Home = () => {
 
   const [questions, setQuestions] = useState({});
-  useEffect(() => {
-    fetch("http://127.0.0.1:5000/getQuestion")
-      .then((response) => response.json())
-      .then((data) => {
-        setQuestions(data.questions);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
 
   const options = [
     { label: "Strongly Disagree", value: 1 },
@@ -26,6 +19,7 @@ const Home = () => {
   const [isFinished, setIsFinished] = useState(false);
   const [surveyStarted, setSurveyStarted] = useState(false);
   const [responseData, setResponseData] = useState({});
+  const [error, setError] = useState(null);
 
   const currentQuestionKey = questionKeys[currentIndex];
   const currentQuestion = questions[currentQuestionKey];
@@ -81,15 +75,31 @@ const Home = () => {
   };
 
   const startSurvey = () => {
-    setSurveyStarted(true);
+    fetch("http://127.0.0.1:5000/getQuestion")
+      .then((response) => response.json())
+      .then((data) => {
+        setQuestions(data.questions);
+        setSurveyStarted(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching survey questions:", error);
+        setError(error);
+
+
+      });
   }
 
   const restartSurvey = () => {
-    setCurrentIndex(0);
-    setAnswers({});
-    setSelectedValue(null);
-    setIsFinished(false);
-    setSurveyStarted(false);
+    const confirmRestart = window.confirm(
+      "Are you sure you want to restart the survey? All your answers will be lost."
+    );
+    if (confirmRestart) {
+      setCurrentIndex(0);
+      setAnswers({});
+      setSelectedValue(null);
+      setIsFinished(false);
+      setSurveyStarted(false);
+    }
   }
 
   const handlePrevious = () => {
@@ -99,27 +109,55 @@ const Home = () => {
     }
   };
 
-  if (!surveyStarted) {
+  if (error) {
     return (
       <>
         <div className="flex justify-center items-center bg-transparent p-4">
           <div className="mt-10 w-full max-w-5xl bg-white rounded-3xl shadow-2xl p-8 md:p-10 space-y-8 transition-all duration-500 hover:shadow-cyan-200 flex justify-center items-center flex-col text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
-              👋 Hi, I’m <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-orange-500">SportSense</span>
-            </h1>
-            <p className="text-lg md:text-xl max-w-3xl mb-6 leading-relaxed">
-              Wondering if your <span className="font-semibold">parents would support</span> your dream to pursue a career in sports? 🏆
-              Let’s find out — together!
+            <h2 className="text-5xl md:text-6xl font-bold mb-4">🚨Error</h2>
+            <p className="text-lg md:text-xl mb-4">
+              Oops! Something went wrong while fetching the survey questions. Please try again later.
             </p>
-            <p className="text-lg md:text-xl max-w-2xl mb-6 italic">
-              Just take a short, fun survey — and I’ll predict the level of support you might receive 💪
-            </p>
-
-            <button onClick={startSurvey} className="mt-4 px-8 py-3 text-lg font-semibold bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 hover:bg-gradient-to-r hover:from-blue-300 hover:via-cyan-500 hover:to-blue-700 rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300">
-              🚀 Start the Survey
-            </button>
+            <button onClick={(e)=>{
+              setError(null);
+            }} className="w-full md:w-5/12 py-3 rounded-2xl font-semibold transform shadow-md hover:bg-gradient-to-r hover:from-blue-300 hover:via-cyan-500 hover:to-blue-700 transition duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-lg bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500  text-white">
+            Return to Home
+          </button>
           </div>
+          
         </div>
+      </>
+    );
+  }
+
+  if (!surveyStarted) {
+    return (
+      <>
+        <div className="flex flex-col justify-center items-center p-4  bg-white rounded-3xl shadow-2xl w-11/12 m-auto mt-5 pace-y-8 transition-all duration-500 hover:shadow-cyan-200">
+          <div className="mt-10 flex lg:flex-row lg:justify-around lg:p-0 md:flex-row md:justify-around md:p-0 justify-center items-center p-2 flex-col">
+
+            <div className="">
+              <h1 className="text-3xl md:text-6xl font-extrabold mb-4">
+                👋 Hi, I’m <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-orange-500">SportSense</span>
+              </h1>
+              <p className="text-lg md:text-xl max-w-3xl mb-6 leading-relaxed">
+                Wondering if your <span className="font-semibold">parents would support</span> your dream to pursue a career in sports? 🏆
+                Let’s find out — together!
+              </p>
+              <p className="text-lg md:text-xl max-w-2xl mb-6 italic">
+                Just take a short, fun survey — and I’ll predict the level of support you might receive 💪
+              </p>
+            </div>
+            <div className=" m-5 flex justify-center items-center w-1/2 floating bg-transparent">
+              <img src={robot} alt="Sports Robot" height='400px' width='300px' className="scale-120  object-cover transition-all duration-300" />
+            </div>
+
+          </div>
+
+          <button onClick={startSurvey} className="w-full md:w-5/12 py-3 rounded-2xl font-semibold transform shadow-md hover:bg-gradient-to-r hover:from-blue-300 hover:via-cyan-500 hover:to-blue-700 transition duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-lg bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500  text-white">
+            🚀 Start the Survey
+          </button>
+        </div >
 
       </>
     )

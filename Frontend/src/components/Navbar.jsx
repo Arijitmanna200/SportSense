@@ -1,7 +1,9 @@
 import React from 'react'
 import logo from '../assets/logo.png'
 import { Link } from 'react-router-dom'
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome} from "react-icons/ai";
+import { IoInformationCircleOutline } from "react-icons/io5";
+import { LuBrain } from "react-icons/lu";
 
 
 const Navbar = () => {
@@ -18,14 +20,18 @@ const Navbar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><Link to="/"><AiOutlineHome size={24} />Home</Link></li>
+                            <li><Link to="/" className="transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105"><AiOutlineHome size={24} />Home</Link></li>
+                            <li><Link to="/HowItWorks" className="transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105"><LuBrain size={24} />HowItWorks</Link></li>
+                            <li><Link to="/About" className="transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105"><IoInformationCircleOutline size={24} />About</Link></li>
                         </ul>
                     </div>
-                    <a className="bg-transparent border-0"><img src={logo} alt="" className="h-16 w-20 rounded-full" /></a>
+                    <a className="bg-transparent border-0"><img src={logo} alt="logo" className="h-16 w-20 rounded-full" /></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal gap-6 px-1 ">
                         <li><Link to="/" className="text-xl transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105 "><AiOutlineHome size={24} />Home</Link></li>
+                        <li><Link to="/HowItWorks" className="text-xl transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105 "><LuBrain size={24} />HowItWorks</Link></li>
+                        <li><Link to="/About" className="text-xl transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105 "><IoInformationCircleOutline size={24} />About</Link></li>
                     </ul>
                 </div>
             </div>
