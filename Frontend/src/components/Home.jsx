@@ -53,7 +53,7 @@ const Home = () => {
 
   // 🟢 Step 2: After user info, fetch questions
   const fetchQuestions = () => {
-    fetch("http://127.0.0.1:5000/getQuestion")
+    fetch("https://sportsense-backend.onrender.com/getQuestion")
       .then((response) => response.json())
       .then((data) => {
         setQuestions(data.questions);
@@ -138,7 +138,7 @@ const Home = () => {
       };
       console.log("🟩 Final Response JSON:", finalData);
 
-      const response = await fetch("http://127.0.0.1:5000/predict", {
+      const response = await fetch("https://sportsense-backend.onrender.com/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -363,17 +363,17 @@ const Home = () => {
         <div className="mt-10 w-full max-w-5xl bg-white rounded-3xl shadow-2xl p-8 md:p-10 text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">🎯 Your AI Prediction</h2>
           <p className="text-2xl mb-4 font-semibold">
-            {responseData.prediction?.toLowerCase().includes("support")
-              ? "👍 Your parents would SUPPORT a sports career!"
-              : "⚠️ Your parents might have concerns about a sports career."}
+            {responseData.prediction?.toLowerCase().includes("unlikely")
+              ? "⚠️ Your parents might have concerns about a sports career."
+              : "👍 Your parents would SUPPORT a sports career!"}
           </p>
           <p className="text-lg md:text-xl mb-4">
             Confidence: <span className="font-bold">{responseData.confidence}%</span>
           </p>
           <p className="text-lg md:text-xl italic mb-6 text-gray-700">
-            {responseData.prediction?.toLowerCase().includes("support")
-              ? "Congratulations! 🎉 It seems your parents are likely to encourage your sports journey."
-              : "Don’t worry! Communication and planning can change everything — keep believing!"}
+            {responseData.prediction?.toLowerCase().includes("unlikely")
+              ? "Don’t worry! Communication and planning can change everything — keep believing!"
+              : "Congratulations! 🎉 It seems your parents are likely to encourage your sports journey."}
           </p>
           <button
             onClick={restartSurvey}
