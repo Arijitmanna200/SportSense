@@ -1,15 +1,17 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-html, body {
+body , html {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  background: none;
 }
 
 body {
+  
   background-image: url('./assets/background.jpg');
   background-size: cover;
   background-position: center;
@@ -17,7 +19,7 @@ body {
   background-attachment: fixed;
   height: 100%;
   width: 100%;
-  margin: 0;
+  
 }
 
 .floating {

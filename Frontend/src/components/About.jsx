@@ -73,7 +73,7 @@ const About = () => {
 
         <p className="mt-12 text-gray-500 italic">
           Designed and developed with 💛 by{" "}
-          <span className="font-semibold text-gray-800">Arijit Manna , Anish Das and Anupama Patra and our project mentor Suman das</span>.
+          <span className="font-semibold text-gray-800">Arijit Manna , Anish Das and Anupama Patra and  Our Project Mentor Suman das</span>.
         </p>
       </div>
     </div>
