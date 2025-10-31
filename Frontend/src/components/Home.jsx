@@ -197,7 +197,7 @@ const Home = () => {
         </div>
         <button
           onClick={startSurvey}
-          className="w-full md:w-5/12 py-3 rounded-2xl font-semibold bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white hover:scale-105 transition"
+          className="w-full md:w-5/12 py-3 rounded-2xl font-semibold transform shadow-md hover:bg-gradient-to-r hover:from-blue-300 hover:via-cyan-500 hover:to-blue-700 transition duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-lg bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white"
         >
           🚀 Start the Survey
         </button>
@@ -282,7 +282,7 @@ const Home = () => {
             </button>
             <button
               onClick={handleStartSurveyAfterInfo}
-              className="w-full md:w-5/12 py-3 rounded-2xl font-semibold bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white hover:scale-105 transition"
+              className="w-full md:w-5/12 py-3 rounded-2xl font-semibold transform shadow-md hover:bg-gradient-to-r hover:from-blue-300 hover:via-cyan-500 hover:to-blue-700 transition duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-lg bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white"
             >
               Continue to Survey 🚀
             </button>
