@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <>
-        <div className="sticky top-0 z-50 flex justify-center items-center pt-4">
+        <div className="sticky top-0 z-50 flex justify-center items-center pt-4 text-black">
             <div className="navbar bg-transparent backdrop-blur-xl shadow-2xl w-11/12 rounded-2xl">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -20,18 +20,18 @@ const Navbar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><Link to="/" className="transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105"><AiOutlineHome size={24} />Home</Link></li>
-                            <li><Link to="/HowItWorks" className="transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105"><LuBrain size={24} />HowItWorks</Link></li>
-                            <li><Link to="/About" className="transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105"><IoInformationCircleOutline size={24} />About</Link></li>
+                            <li><Link to="/" className="text-black transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105"><AiOutlineHome size={24} />Home</Link></li>
+                            <li><Link to="/HowItWorks" className="text-black transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105"><LuBrain size={24} />HowItWorks</Link></li>
+                            <li><Link to="/About" className="text-black transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105"><IoInformationCircleOutline size={24} />About</Link></li>
                         </ul>
                     </div>
                     <a className="bg-transparent border-0"><img src={logo} alt="logo" className="h-16 w-20 rounded-full" /></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal gap-6 px-1 ">
-                        <li><Link to="/" className="text-xl transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105 "><AiOutlineHome size={24} />Home</Link></li>
-                        <li><Link to="/HowItWorks" className="text-xl transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105 "><LuBrain size={24} />HowItWorks</Link></li>
-                        <li><Link to="/About" className="text-xl transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105 "><IoInformationCircleOutline size={24} />About</Link></li>
+                        <li><Link to="/" className="text-black text-xl transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105 "><AiOutlineHome size={24} />Home</Link></li>
+                        <li><Link to="/HowItWorks" className="text-black text-xl transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105 "><LuBrain size={24} />HowItWorks</Link></li>
+                        <li><Link to="/About" className="text-black text-xl transition duration-300 ease-in-out rounded-2xl active:text-cyan-300 active:bg-transparent active:scale-95 hover:text-cyan-300 hover:bg-transparent hover:scale-105 "><IoInformationCircleOutline size={24} />About</Link></li>
                     </ul>
                 </div>
             </div>

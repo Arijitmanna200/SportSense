@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div
       id="about"
-      className="bg-white flex flex-col justify-center items-center rounded-3xl shadow-2xl w-11/12 m-auto mt-8 mb-10 p-10 transition-all duration-500 hover:shadow-cyan-200"
+      className="text-black bg-white flex flex-col justify-center items-center rounded-3xl shadow-2xl w-11/12 m-auto mt-8 mb-10 p-10 transition-all duration-500 hover:shadow-cyan-200"
     >
       <div className="max-w-5xl text-center">
 

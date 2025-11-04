@@ -30,7 +30,7 @@ const HowItWorks = () => {
   return (
     <div
       id="how-it-works"
-      className="relative py-16 px-6 md:px-12 bg-white w-11/12flex flex-col justify-center items-center p-4 rounded-3xl shadow-2xl w-11/12 m-auto mt-5 pace-y-8 transition-all duration-500 hover:shadow-cyan-200"
+      className="text-black relative py-16 px-6 md:px-12 bg-white w-11/12flex flex-col justify-center items-center p-4 rounded-3xl shadow-2xl w-11/12 m-auto mt-5 pace-y-8 transition-all duration-500 hover:shadow-cyan-200"
     >
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-10">
